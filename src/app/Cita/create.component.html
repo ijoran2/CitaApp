@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Crear Citas</h4>
+  </div>
+  <div class="card-body">
+    <form id="formularioCreacionProducto" [formGroup]="form" (ngSubmit)="Guardar()" class="form" role="form">
+    <div class="row">
+        <div class="d-flex justify-content-start h5 col-2 my-3"></div>
+         <div class="d-flex justify-content-end col-10">  
+          <button class="btn btn-light btn-sm mx-3" [routerLink]="['/Cita']" >
+            <fa-icon [icon]="faArrowRotateLeft"></fa-icon> Regresar</button>
+          <button class="btn btn-light btn-sm" (click)="Limpiar()" type="button">
+            <fa-icon [icon]="faEraser"></fa-icon> Limpiar</button>
+          <button class="btn btn-primary btn-sm mx-3" type="submit">
+            <fa-icon [icon]="faSave"></fa-icon> Guardar</button>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-12">
+          <div class="mb-2 col-6">
+            <label for="nombre" class="form-label">Placa</label>
+            <input  placeholder="Placa" class="form-control" maxlength="250"  name="Placa" formControlName="Placa" />
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['Placa'].touched || seHizoSubmit) && ControlesFormularios['Placa'].errors?.['required']">
+            </span>
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['Placa'].touched || seHizoSubmit) && ControlesFormularios['Placa'].errors?.['maxLength']">
+            </span>
+
+          </div>
+
+          <div class="mb-2 col-3">
+            <label for="Fecha" class="form-label">Fecha</label>
+            <input  placeholder="Fecha" class="form-control"  name="fecha" formControlName="Fecha" />
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['Fecha'].touched || seHizoSubmit) && ControlesFormularios['fecha'].errors?.['required']">
+            Precio es requerido
+            </span>
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['fecha'].touched || seHizoSubmit) && ControlesFormularios['fecha'].errors?.['pattern']">
+            </span>
+          </div>
+          <div class="mb-2 col-3">
+            <label for="cantidad" class="form-label">Estado</label>
+            <input  placeholder="Estado" class="form-control"  name="Estado" formControlName="Estado" />
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['Estado'].touched || seHizoSubmit) && ControlesFormularios['Estado'].errors?.['required']">
+            </span>
+            <span class="text-danger"
+            *ngIf="(ControlesFormularios['Estado'].touched || seHizoSubmit) && ControlesFormularios['Estado'].errors?.['pattern']">
+            </span>
+          </div>           
+         </div>
+       </div>
+
+      </form>
+  </div>
+</div>
